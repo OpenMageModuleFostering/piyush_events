@@ -6,7 +6,7 @@
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  * @link      N/A 
  */
-class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
+class Piyush_Events_Block_Adminhtml_Events_Edit_Tab_Main
     extends Mage_Adminhtml_Block_Widget_Form
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
@@ -17,12 +17,12 @@ class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
      */
     protected function _prepareForm()
     {
-        $model = Mage::helper('valuelabs_events')->getEventsItemInstance();
+        $model = Mage::helper('piyush_events')->getEventsItemInstance();
 
         /**
          * Checking if user have permissions to save information
          */
-        if (Mage::helper('valuelabs_events/admin')->isActionAllowed('save')) {
+        if (Mage::helper('piyush_events/admin')->isActionAllowed('save')) {
             $isElementDisabled = false;
         } else {
             $isElementDisabled = true;
@@ -33,7 +33,7 @@ class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
         $form->setHtmlIdPrefix('news_main_');
 
         $fieldset = $form->addFieldset('base_fieldset', array(
-            'legend' => Mage::helper('valuelabs_events')->__('Events Item Info')
+            'legend' => Mage::helper('piyush_events')->__('Events Item Info')
         ));
 
         if ($model->getId()) {
@@ -44,24 +44,24 @@ class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
 
         $fieldset->addField('title', 'text', array(
             'name'     => 'title',
-            'label'    => Mage::helper('valuelabs_events')->__('Events Title'),
-            'title'    => Mage::helper('valuelabs_events')->__('Events Title'),
+            'label'    => Mage::helper('piyush_events')->__('Events Title'),
+            'title'    => Mage::helper('piyush_events')->__('Events Title'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
 
         $fieldset->addField('venue', 'text', array(
             'name'     => 'venue',
-            'label'    => Mage::helper('valuelabs_events')->__('Venue'),
-            'title'    => Mage::helper('valuelabs_events')->__('Venue'),
+            'label'    => Mage::helper('piyush_events')->__('Venue'),
+            'title'    => Mage::helper('piyush_events')->__('Venue'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
 		
 		 $fieldset->addField('entry_fee', 'text', array(
             'name'     => 'entry_fee',
-            'label'    => Mage::helper('valuelabs_events')->__('Entry Fee'),
-            'title'    => Mage::helper('valuelabs_events')->__('Entry Fee'),
+            'label'    => Mage::helper('piyush_events')->__('Entry Fee'),
+            'title'    => Mage::helper('piyush_events')->__('Entry Fee'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
@@ -70,8 +70,8 @@ class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
             'name'     => 'published_at',
             'format'   => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
             'image'    => $this->getSkinUrl('images/grid-cal.gif'),
-            'label'    => Mage::helper('valuelabs_events')->__('Publishing Date'),
-            'title'    => Mage::helper('valuelabs_events')->__('Publishing Date'),
+            'label'    => Mage::helper('piyush_events')->__('Publishing Date'),
+            'title'    => Mage::helper('piyush_events')->__('Publishing Date'),
             'required' => true
         ));
 
@@ -90,7 +90,7 @@ class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
      */
     public function getTabLabel()
     {
-        return Mage::helper('valuelabs_events')->__('Events Info');
+        return Mage::helper('piyush_events')->__('Events Info');
     }
 
     /**
@@ -100,7 +100,7 @@ class Valuelabs_Events_Block_Adminhtml_Events_Edit_Tab_Main
      */
     public function getTabTitle()
     {
-        return Mage::helper('valuelabs_events')->__('Events Info');
+        return Mage::helper('piyush_events')->__('Events Info');
     }
 
     /**
