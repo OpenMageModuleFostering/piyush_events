@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/* 
+ * @category  Event Manager Module
+ * @package   Piyush_Events
+ * @author    Piyush Kumar <phpteamlead.mca@gmail.com,er.piyush.kumar@gmail.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      N/A 
+ */
+ -->
+<config>
+    <modules>
+        <Piyush_Events>
+            <version>1.0.1</version>
+        </Piyush_Events>
+    </modules>
+    <global>
+        <models>
+            <piyush_events>
+                <class>Piyush_Events_Model</class>
+                <resourceModel>events_resource</resourceModel>
+            </piyush_events>
+            <events_resource>
+                <class>Piyush_Events_Model_Resource</class>
+                <entities>
+                    <events>
+                        <table>piyush_events</table>
+                    </events>
+                </entities>
+            </events_resource>
+        </models>
+        <helpers>
+            <piyush_events>
+                <class>Piyush_Events_Helper</class>
+            </piyush_events>
+        </helpers>
+        <blocks>
+            <piyush_events>
+                <class>Piyush_Events_Block</class>
+            </piyush_events>
+        </blocks>
+        <resources>
+            <piyush_events_setup>
+                <setup>
+                    <module>Piyush_Events</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </piyush_events_setup>
+        </resources>
+        <events>
+            <before_events_item_display>
+                <observers>
+                    <piyush_events>
+                        <class>piyush_events/observer</class>
+                        <method>beforeEventsDisplayed</method>
+                    </piyush_events>
+                </observers>
+            </before_events_item_display>
+        </events>
+    </global>
+    <frontend>
+        <routers>
+            <piyush_events>
+                <use>standard</use>
+                <args>
+                    <module>Piyush_Events</module>
+                    <frontName>events</frontName>
+                </args>
+            </piyush_events>
+        </routers>
+        <layout>
+            <updates>
+                <piyush_events>
+                    <file>piyush_events.xml</file>
+                </piyush_events>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Piyush_Events before="Mage_Adminhtml">Piyush_Events_Adminhtml</Piyush_Events>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <piyush_events>
+                    <file>piyush_events.xml</file>
+                </piyush_events>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <events>
+            <view>
+                <enabled>1</enabled>
+                <items_per_page>10</items_per_page>
+                <days_difference>3</days_difference>
+            </view>
+        </events>
+    </default>
+</config>

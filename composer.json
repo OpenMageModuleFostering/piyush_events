@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Piyush_Events",
+    "type": "magento-module",
+    "license": "OSL",
+    "homepage": "",
+    "description": "Event Manager",
+    "authors": [
+    {
+        "name": "Piyush",
+        "email": "phpteamlead.mca@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
